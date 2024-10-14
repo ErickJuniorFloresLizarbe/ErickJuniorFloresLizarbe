@@ -16,4 +16,5 @@ Here are some ideas to get you started:
 -->
 
 
-![Descripción de la imagen](ruta/a/github-contribution-grid-snake-dark.svg)
+![Descripción de la imagen](ErickJuniorFloresLizarbe/.github
+/workflow/github-contribution-grid-snake-dark.svg)
