@@ -1,21 +1,17 @@
-#name: Personal Commit
-#on:
-  #schedule:
-    # Ejecutar todos los días a las 8:00 AM hora Perú (UTC-5)  //0 13
-    #- cron: '0 13 * * *'  # 8:00 AM en Perú es 1:00 PM UTC
-name: SonarCloud
+name: Personal Commit
+
 on:
-  push:
-    branches:
-      - main
-      
+  schedule:
+    # Ejecutar todos los días a las 8:00 AM hora Perú (UTC-5)
+    - cron: '0 13 * * *'  # 8:00 AM en Perú es 1:00 PM UTC
+
 jobs:
   commit:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Git
         env:
@@ -30,7 +26,7 @@ jobs:
           for i in 1 2; do
             echo "Mi Commit diario $i" >> daily_commit_$i.txt
             git add daily_commit_$i.txt
-            git commit -m "Commit diario $i"
+            git commit -m "Commit diario $i" || echo "No hay cambios para commitear"
           done
 
       - name: Push changes
